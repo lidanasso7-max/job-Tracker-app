@@ -43,7 +43,7 @@ export default function SignUp(){
             }else{
                 router.push("/Dashboard")
             }
-         }catch(err){
+         }catch{
             seterror("an Unexpected error ocured")
          }finally{
             setloading(false)

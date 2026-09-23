@@ -19,12 +19,3 @@ export async function getsession(){
   })
   return result
 }
-
-export async function signOut(){
-  const result = await auth.api.getSession({
-    headers:await headers()
-  })
-  if(result.success){
-    redirect("/Sign-In")
-  }
-}

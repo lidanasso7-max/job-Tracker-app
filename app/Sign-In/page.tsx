@@ -43,7 +43,7 @@ export default function SignIn() {
       } else {
         router.push("/Dashboard");
       }
-    } catch(err) {
+    } catch {
       setError("An unexpected error occurred");
     } finally {
       setLoading(false);
@@ -106,7 +106,7 @@ export default function SignIn() {
               {loading ? "Signing in..." : "Sign In"}
             </Button>
             <p className="text-center text-sm text-gray-600">
-              Don't have an account?{" "}
+              Don&apos;t have an account?{" "}
               <Link
                 href="/Sign-Up"
                 className="font-medium text-primary hover:underline"

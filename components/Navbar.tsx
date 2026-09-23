@@ -3,10 +3,9 @@
 import { Briefcase } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button";
-import { getsession } from "@/lib/auth/auth";
-import {DropdownMenu , DropdownMenuTrigger , DropdownMenuItem , DropdownMenuLabel , DropdownMenuContent, DropdownMenuGroup} from '@/components/ui/dropdown-menu'
+import {DropdownMenu , DropdownMenuTrigger , DropdownMenuLabel , DropdownMenuContent, DropdownMenuGroup} from '@/components/ui/dropdown-menu'
 import { Avatar , AvatarFallback } from "@/components/ui/avatar";
-import {signoutButton} from '@/components/Sign-Out-btn'
+import SignOutButton from '@/components/Sign-Out-btn'
 import { useSession } from "@/lib/auth/auth-client";
 
 
@@ -48,18 +47,18 @@ export default  function Navbar(){
                                         <p>{session.user.email}</p>
                                     </div>
                                 </DropdownMenuLabel>
-                                <signoutButton/>
+                                <SignOutButton />
                             </DropdownMenuGroup>
                         </DropdownMenuContent>
                     </DropdownMenu>
                     </>
                     :
                     <>
-                    <Link href="Sign-In">
+                    <Link href="/Sign-In">
                         <Button variant="ghost" className="text-gray-700 hover:text-black cursor-pointer">Log-In</Button>
                     </Link>
 
-                    <Link href="Sign-Up">
+                    <Link href="/Sign-Up">
                         <Button size="lg" className="bg-primary hover:bg-primary/90 cursor-pointer">start for free</Button>
                     </Link>
                     </>}
