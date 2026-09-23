@@ -7,13 +7,17 @@ import {
   CardTitle,
   CardFooter,
 } from "@/components/ui/card";
+
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useState } from "react";
 import { signUp } from "@/lib/auth/auth-client";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
+
+// //////////////////////////////////////////////////////////
+
 export default function SignUp(){
 
     const [name , setname] = useState("")
@@ -23,6 +27,7 @@ export default function SignUp(){
     const [loading , setloading] = useState(false)
     const router = useRouter()
 
+    // handle the submition of the form 
     async function handlesubmit(e : React.SubmitEvent){
 
         e.preventDefault()
@@ -36,7 +41,7 @@ export default function SignUp(){
             if(result.error){
                 seterror(result.error.message??"failed to sign-up")
             }else{
-                router.push("/dashboard")
+                router.push("/Dashboard")
             }
          }catch(err){
             seterror("an Unexpected error ocured")
@@ -56,7 +61,7 @@ export default function SignUp(){
                     create and acount to start tracking your job application
                 </CardDescription>
             </CardHeader>
-            <form onSubmit={handlesubmit} action="">
+            <form onSubmit={handlesubmit}>
                 <CardContent className="flex flex-col gap-y-3">
                    {error && (
                     <div className="rounded-md bg-destructive/15 p-3 text-sm text-destructive">
@@ -83,7 +88,7 @@ export default function SignUp(){
                     </div>
                 </CardContent>
                 <CardFooter className="flex flex-col space-y-4">
-                    <Button disabled={loading} className="w-full bg-primary hover:bg-primary/90 cursor-pointer">
+                    <Button type="submit" disabled={loading} className="w-full bg-primary hover:bg-primary/90 cursor-pointer">
                         
                         {loading?'creating an account':'sign up'}
                     </Button>
