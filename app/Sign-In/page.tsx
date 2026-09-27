@@ -100,16 +100,16 @@ export default function SignIn() {
           <CardFooter className="flex flex-col space-y-4">
             <Button
               type="submit"
-              className="w-full bg-primary hover:bg-primary/90"
+              className="w-full bg-primary hover:bg-primary/90 cursor-pointer"
               disabled={loading}
             >
               {loading ? "Signing in..." : "Sign In"}
             </Button>
             <p className="text-center text-sm text-gray-600">
-              Don&apos;t have an account?{" "}
+              Don't have an account?{" "}
               <Link
                 href="/Sign-Up"
-                className="font-medium text-primary hover:underline"
+                className="font-medium text-primary hover:underline cursor-pointer"
               >
                 Sign-up
               </Link>
